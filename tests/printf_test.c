@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <limits.h>
+
 
 /**
 *main - test printf
@@ -13,5 +15,6 @@ int main(void)
 	printf("u: %u\n", -52);
 	printf("d: %d\n", 52);
 	printf("i: %i\n", 052);
+	printf("%d", -(INT_MIN + 1));
 	return (0);
 }

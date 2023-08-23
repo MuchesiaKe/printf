@@ -6,7 +6,7 @@
 	int _printf(const char *, ...);
 	int char_printer(char);
 	int str_printer(char *);
-	int num_printer(long);
+	int num_printer(int);
 	int converter(int decimal_num, int base);
 	int unsigned_printer(int);
 #endif

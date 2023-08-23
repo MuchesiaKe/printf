@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 #include <stdio.h>
 
 /**
@@ -7,11 +8,11 @@
 *Return: number of printed digits
 **/
 
-int num_printer(long num)
+int num_printer(int num)
 {
-	int i, dig_count;
-	int long rev;
+	int i, dig_count, rev, num_cpy, j;
 	char sign;
+	char *num_str;
 
 	if (num == 0)
 	{
@@ -21,18 +22,28 @@ int num_printer(long num)
 	sign = '+';
 	i = rev = dig_count = 0;
 
+	printf("%d\n", num);
 	if (num < 0)
 	{
 		sign = '-';
 		num = -num;
 	}
+	printf("%d\n", num);
+	num_cpy = num;
 
-	printf("%ld\n", num);
 	while (num / 10 || num % 10)
 	{
-		rev = (rev * 10) + (num % 10);
 		num /= 10;
 		dig_count++;
+	}
+	num_str = malloc((sizeof(*num_str) * dig_count) + 1);
+	if (num_str == NULL)
+		return (0);
+	
+	for (j = 0; j < dig_count; j++)
+	{
+		num_str[j] = '0' + (num_cpy % 10);
+		num_cpy = num_cpy / 10;
 	}
 	if (sign == '-')
 	{
@@ -40,10 +51,9 @@ int num_printer(long num)
 		i++;
 	}
 
-	while (dig_count--)
+	for (j = dig_count; j >= 0; j--)
 	{
-		_putchar('0' + (rev % 10));
-		rev /= 10;
+		_putchar(num_str[j]);
 		i++;
 	}
 	return (i);
