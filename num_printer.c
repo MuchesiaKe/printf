@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
 *num_printer - print number with loop
@@ -6,7 +7,7 @@
 *Return: number of printed digits
 **/
 
-int num_printer(int num)
+int num_printer(long num)
 {
 	int i, dig_count;
 	int long rev;
@@ -19,11 +20,14 @@ int num_printer(int num)
 	}
 	sign = '+';
 	i = rev = dig_count = 0;
+
 	if (num < 0)
 	{
 		sign = '-';
 		num = -num;
 	}
+
+	printf("%ld\n", num);
 	while (num / 10 || num % 10)
 	{
 		rev = (rev * 10) + (num % 10);
