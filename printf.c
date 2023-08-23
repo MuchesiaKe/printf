@@ -63,6 +63,12 @@ int _printf(const char *format, ...)
 					printed += unsigned_printer(converter(va_arg(specifier, int), 16));
 					format++;
 					break;
+				default:
+					_putchar('%');
+					printed++;
+					_putchar(*format);
+					printed++;
+					format++;
 			}
 		}
 
