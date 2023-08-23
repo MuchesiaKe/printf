@@ -8,7 +8,8 @@
 
 int num_printer(int num)
 {
-	int i, rev, dig_count;
+	int i, dig_count;
+	int long rev;
 	char sign;
 
 	if (num == 0)
