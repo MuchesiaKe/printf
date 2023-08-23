@@ -29,7 +29,7 @@ int converter(int decimal_num, int base)
 		rem[i] = quotient % base;
 		quotient = quotient / base;
 	}
-	while(i >= 0)
+	while (i >= 0)
 	{
 		num_conv = (num_conv * 10) + rem[i];
 		i--;

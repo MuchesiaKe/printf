@@ -11,6 +11,8 @@ int _printf(const char *format, ...)
 	unsigned int printed;
 	va_list specifier;
 
+	if (format == NULL)
+		return (0);
 	printed = 0;
 	va_start(specifier, format);
 	while (*format)
@@ -30,6 +32,7 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					_putchar(*format);
+					printed++;
 					format++;
 					break;
 				case 'd':
