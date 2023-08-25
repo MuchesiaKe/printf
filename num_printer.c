@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
 *num_printer - print number with loop
@@ -10,9 +9,8 @@
 
 int num_printer(int num)
 {
-	int i, dig_count, rev, num_cpy, j;
+	int i, dig_count, rev;
 	char sign;
-	char *num_str;
 
 	if (num == 0)
 	{
@@ -20,30 +18,19 @@ int num_printer(int num)
 		return (1);
 	}
 	sign = '+';
-	i = rev = dig_count = 0;
+	i = dig_count = rev = 0;
 
-	printf("%d\n", num);
 	if (num < 0)
 	{
 		sign = '-';
 		num = -num;
 	}
-	printf("%d\n", num);
-	num_cpy = num;
 
 	while (num / 10 || num % 10)
 	{
+		rev = (rev * 10) + (num % 10);
 		num /= 10;
 		dig_count++;
-	}
-	num_str = malloc((sizeof(*num_str) * dig_count) + 1);
-	if (num_str == NULL)
-		return (0);
-	
-	for (j = 0; j < dig_count; j++)
-	{
-		num_str[j] = '0' + (num_cpy % 10);
-		num_cpy = num_cpy / 10;
 	}
 	if (sign == '-')
 	{
@@ -51,10 +38,11 @@ int num_printer(int num)
 		i++;
 	}
 
-	for (j = dig_count; j >= 0; j--)
+	while (dig_count--)
 	{
-		_putchar(num_str[j]);
+		_putchar('0' + rev % 10);
 		i++;
+		rev /= 10;
 	}
 	return (i);
 }

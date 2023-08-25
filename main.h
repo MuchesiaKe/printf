@@ -2,11 +2,12 @@
 #define MAIN_H
 	#include <unistd.h>
 	#include <stdarg.h>
+	#include <stdlib.h>
 	int _putchar(char);
 	int _printf(const char *, ...);
 	int char_printer(char);
 	int str_printer(char *);
 	int num_printer(int);
 	int converter(int decimal_num, int base);
-	int unsigned_printer(int);
+	int unsigned_printer(unsigned int);
 #endif

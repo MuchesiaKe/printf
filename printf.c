@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 					format++;
 					break;
 				case 'u':
-					printed += unsigned_printer(va_arg(specifier, int));
+					printed += unsigned_printer(va_arg(specifier, unsigned int));
 					format++;
 					break;
 				case 'b':
